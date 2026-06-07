@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurudev Collection | Wholesale Apparel CSN</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #1e3a8a; /* Deep Navy Blue */
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #93c5fd;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.9)), 
+                        url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=1200') no-repeat center center/cover;
+            color: #ffffff;
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+        .btn {
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #2563eb;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Catalog Grid */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid #1e3a8a;
+            padding: 2rem 1.5rem;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        .card p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .contact-details h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .contact-details p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .contact-details .owner-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #3b82f6;
+        }
+        
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+        input, textarea {
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .submit-btn {
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #172554;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .contact-wrapper {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <div class="logo">Gurudev Collection</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Premium Wholesale Apparel Distributor</h1>
+        <p>Supplying high-quality daily wear and trending fashion directly to retail shop owners across Maharashtra.</p>
+        <a href="#contact" class="btn">Inquire for Bulk Orders</a>
+    </section>
+
+    <div class="container">
+        
+        <section id="about" style="text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <h2 class="section-title">About Our Store</h2>
+            <p style="font-size: 1.1rem; color: #475569;">Located in the heart of <strong>Chhatrapati Sambhajinagar (CSN)</strong>, Gurudev Collection is a trusted B2B wholesaler. We pride ourselves on offering a vast, diverse inventory of ready-made garments at competitive bulk pricing to help local boutiques and retail stores thrive.</p>
+        </section>
+
+        <section id="catalog">
+            <h2 class="section-title">Our Apparel Categories</h2>
+            <div class="catalog-grid">
+                <div class="card">
+                    <h3>Men's Wear</h3>
+                    <p>Bulk supply of casual shirts, formal wear, premium denim jeans, t-shirts, and activewear designed for comfort and durability.</p>
+                </div>
+                <div class="card">
+                    <h3>Women's Wear</h3>
+                    <p>A wide selection of trending kurtis, western tops, leggings, traditional dresses, and daily wear essentials for modern retail.</p>
+                </div>
+                <div class="card">
+                    <h3>Kids' Wear</h3>
+                    <p>High-quality, skin-friendly daily outfits, party wear, and seasonal clothing bundles for infants to young teenagers.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top: 5rem;">
+            <h2 class="section-title">Contact for Bulk Pricing</h2>
+            <div class="contact-wrapper">
+                <div class="contact-details">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to stock your shop? Contact us directly for minimum order quantities, catalog PDFs, and wholesale pricing.</p>
+                    <br>
+                    <p><strong>Owner:</strong> <span class="owner-name">Hardik Ramchandani</span></p>
+                    <p><strong>Phone / WhatsApp:</strong> +91 8956430706</p>
+                    <p><strong>Location:</strong> Chhatrapati Sambhajinagar (CSN), Maharashtra</p>
+                </div>
+                
+                <div>
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Your wholesale inquiry has been submitted.');">
+                        <div class="form-group">
+                            <label for="shopName">Your Retail Shop Name</label>
+                            <input type="text" id="shopName" required placeholder="e.g. Royal Fashion Boutique">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Contact Number</label>
+                            <input type="tel" id="phone" required placeholder="10-digit mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label for="requirements">Order Requirements</label>
+                            <textarea id="requirements" rows="4" required placeholder="Let us know which categories (Men, Women, Kids) you are interested in..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Inquiry to Hardik</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Gurudev Collection - Wholesale Distributors. All Rights Reserved.</p>
+        <p style="font-size: 0.85rem; margin-top: 5px;">Academic Web Development Project Submission.</p>
+    </footer>
+
+</body>
+</html>
